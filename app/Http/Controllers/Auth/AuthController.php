@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
+use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 class AuthController extends Controller
 {
@@ -21,6 +23,19 @@ class AuthController extends Controller
         $user->organization = $request->organization ?  $request->organization : '';
         $user->job_title = $request->job_title ? $request->job_title : '';
         $user->occupation = $request->occupation ? $request->occupation : '';
+
+        $user->save();
+        event(new Registered($user));
+
+        $token = $user->createToken('measyappproject2022')->plainTextToken;
+
+        $user_and_token = [
+            $user,
+            $token
+        ];
+
+        return response($user_and_token, 201);
+
     }
 
     public function show(User $user)
@@ -29,6 +44,25 @@ class AuthController extends Controller
         // dd($user);
 
         return response($user);
+    }
+
+    public function email_verify()
+    {
+        return view('auth.verify-email');
+    }
+
+    public function email_verify_hash(EmailVerificationRequest $request)
+    {
+        $request->fulfill();
+ 
+        return redirect('/home');
+    }
+
+    public function email_verification_notice(Request $request)
+    {
+        $request->user()->sendEmailVerificationNotification();
+ 
+        return back()->with('message', 'Verification link sent!');
     }
 
 }

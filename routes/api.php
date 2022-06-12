@@ -1,7 +1,9 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,20 @@ Route::prefix('user')->group(function() {
     
     Route::post('/login', [AuthController::class, 'login'])
         ->name('login');
+
+    Route::get('/email/verify', [AuthController::class, 'email_verify'])
+        ->middleware('auth')
+        ->name('verification.notice');
+
+ 
+    Route::get('/email/verify/{id}/{hash}', [AuthController::class, 'email_verify_hash'])
+        ->middleware(['auth', 'signed'])
+        ->name('verification.verify');
+
+ 
+    Route::post('/email/verification-notification', [AuthController::class, 'email_verification_notice'])
+        ->middleware(['auth', 'throttle:6,1'])
+        ->name('verification.send');
 
 });
 
