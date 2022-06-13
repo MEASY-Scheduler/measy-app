@@ -26,6 +26,9 @@ Route::prefix('user')->group(function() {
     Route::post('/login', [AuthController::class, 'login'])
         ->name('login');
 
+    Route::get('/logout', [AuthController::class, 'logout'])
+        ->name('logout');
+
 });
 
 Route::get('/email/verify', function() {
