@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\GoogleAuthController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -28,6 +29,12 @@ Route::prefix('user')->group(function() {
 
     Route::get('/logout', [AuthController::class, 'logout'])
         ->name('logout');
+
+    Route::get('/auth/google', [GoogleAuthController::class, 'redirect_to_google'])
+        ->name('auth.google');
+
+    Route::get('/auth/google/callback', [GoogleAuthController::class, 'google_callback'])
+        ->name('auth.callback');
 
 });
 
