@@ -46,23 +46,6 @@ class AuthController extends Controller
         return response($user);
     }
 
-    public function email_verify()
-    {
-        return view('auth.verify-email');
-    }
 
-    public function email_verify_hash(EmailVerificationRequest $request)
-    {
-        $request->fulfill();
- 
-        return redirect('/home');
-    }
-
-    public function email_verification_notice(Request $request)
-    {
-        $request->user()->sendEmailVerificationNotification();
- 
-        return back()->with('message', 'Verification link sent!');
-    }
 
 }
