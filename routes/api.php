@@ -36,6 +36,10 @@ Route::prefix('user')->group(function() {
     Route::get('/auth/google/callback', [GoogleAuthController::class, 'google_callback'])
         ->name('auth.callback');
 
+    Route::post('/forgot-password', [AuthController::class, 'forgot_password'])
+        ->middleware('guest')
+        ->name('password.forgot');
+
 });
 
 Route::get('/email/verify', function() {

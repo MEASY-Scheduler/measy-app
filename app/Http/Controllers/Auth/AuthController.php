@@ -14,7 +14,7 @@ class AuthController extends Controller
 {
     public function __construct()   
     {
-        $this->middleware('auth')->except('register', 'login');
+        $this->middleware('auth:sanctum')->except('register', 'login');
     }
 
     public function register(UserRequest $request)
