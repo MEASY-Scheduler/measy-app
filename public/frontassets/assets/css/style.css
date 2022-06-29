@@ -84,8 +84,142 @@
   }
 
 
+  .tools-container {
+    padding: 50px;
+    border-radius: 20px;
+  }
+
+  .tools-image {
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tools-zoom {
+    border: 5px solid #0F68D8;
+  }
+
+  .tools-meet {
+    border: 5px solid #419C45;
+  }
+
+  .tools-teams {
+    border: 5px solid #2D399A;
+  }
+
+  .tools-title {
+    font-weight: 700;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  #footer-container {
+    background-color: #000;
+    color: #FFF;
+  }
+
+  .footer-title {
+    color: #FFF;
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  
+#footer-container a {
+  color: #03B4C6 !important;
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 5px;;
+}
 
 
+.social-button {
+  
+  cursor: pointer;
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none !important;
+  text-transform: uppercase;
+  vertical-align: middle;
+  width: 100%;
+  border-radius: 3px;
+  margin: 10px auto;
+  outline: rgb(255, 255, 255) none 0px;
+  transition: all 0.2s cubic-bezier(0.72, 0.01, 0.56, 1) 0s;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+
+#google-connect {
+  background: rgb(255, 255, 255) url('https://raw.githubusercontent.com/eswarasai/social-login/master/img/google-plus.png') no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
+  border: 1px solid rgb(220, 74, 61);
+}
+
+/* #google-connect:hover {
+  border-color: rgb(220, 74, 61);
+  background: rgb(220, 74, 61) url('https://raw.githubusercontent.com/eswarasai/social-login/master/img/google-plus-white.png') no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
+  -webkit-transition: all .8s ease-out;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease-out;
+} */
+
+#google-connect span {
+  box-sizing: border-box;
+  color: rgb(220, 74, 61);
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  border: 0px none rgb(220, 74, 61);
+  outline: rgb(255, 255, 255) none 0px;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+/* 
+#google-connect:hover span {
+  color: #FFF;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+} */
+
+
+
+#microsoft-connect {
+  background: rgb(255, 255, 255) url('../img/microsoft.png') no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
+  border: 1px solid #00adef;
+}
+
+#microsoft-connect span {
+  box-sizing: border-box;
+  color: #00adef;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  border: 0px none #00adef;
+  outline: rgb(255, 255, 255) none 0px;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
 
 
   @media screen and (min-width: 768px) {

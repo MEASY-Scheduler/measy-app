@@ -10,4 +10,14 @@ class HomeController extends Controller
 
         return view('front.home');
     }
+
+    public function signin(){
+
+        return view('front.signin');
+    }
+
+    public function signup(){
+
+        return view('front.signup');
+    }
 }

@@ -51,6 +51,7 @@
 
       @yield('content')
 
+      @include('front.partials.footer')
     </main>
     <!-- ===============================================-->
     <!--    End of Main Content-->

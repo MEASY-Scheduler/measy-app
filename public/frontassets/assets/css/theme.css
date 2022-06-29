@@ -15,7 +15,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
-  --bs-blue: #747DEF;
+  --bs-blue: #03b4c6;
   --bs-indigo: #6237FF;
   --bs-purple: #A1B0FC;
   --bs-pink: #D42DA3;
@@ -28,7 +28,7 @@
   --bs-white: #FFFEFE;
   --bs-gray: #F0F4F9;
   --bs-gray-dark: #979797;
-  --bs-primary: #747DEF;
+  --bs-primary: #03b4c6;
   --bs-secondary: #544837;
   --bs-success: #79B93C;
   --bs-info: #567592;
@@ -3285,8 +3285,8 @@ fieldset:disabled .btn {
 
 .btn-primary {
   color: #FFFEFE;
-  background-color: #747DEF;
-  border-color: #747DEF;
+  background-color: #03b4c6;
+  border-color: #03b4c6;
 }
 
 .btn-primary:hover {
@@ -3320,8 +3320,8 @@ fieldset:disabled .btn {
 
 .btn-primary:disabled, .btn-primary.disabled {
   color: #FFFEFE;
-  background-color: #747DEF;
-  border-color: #747DEF;
+  background-color: #03b4c6;
+  border-color: #03b4c6;
 }
 
 .btn-secondary {
@@ -3612,14 +3612,14 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-primary {
-  color: #747DEF;
-  border-color: #747DEF;
+  color: #03b4c6;
+  border-color: #03b4c6;
 }
 
 .btn-outline-primary:hover {
   color: #FFFEFE;
-  background-color: #747DEF;
-  border-color: #747DEF;
+  background-color: #03b4c6;
+  border-color: #03b4c6;
 }
 
 .btn-check:focus + .btn-outline-primary, .btn-outline-primary:focus {
@@ -3630,8 +3630,8 @@ fieldset:disabled .btn {
 .btn-check:checked + .btn-outline-primary,
 .btn-check:active + .btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show {
   color: #FFFEFE;
-  background-color: #747DEF;
-  border-color: #747DEF;
+  background-color: #03b4c6;
+  border-color: #03b4c6;
 }
 
 .btn-check:checked + .btn-outline-primary:focus,
@@ -3641,7 +3641,7 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-primary:disabled, .btn-outline-primary.disabled {
-  color: #747DEF;
+  color: #03b4c6;
   background-color: transparent;
 }
 
@@ -6599,7 +6599,7 @@ fieldset:disabled .btn {
   justify-content: center;
   width: 15%;
   padding: 0;
-  color: #747DEF;
+  color: #03b4c6;
   text-align: center;
   background: none;
   border: 0;
@@ -6621,7 +6621,7 @@ fieldset:disabled .btn {
 .carousel-control-prev:hover, .carousel-control-prev:focus,
 .carousel-control-next:hover,
 .carousel-control-next:focus {
-  color: #747DEF;
+  color: #03b4c6;
   text-decoration: none;
   outline: 0;
   opacity: 0.9;
@@ -6693,7 +6693,7 @@ fieldset:disabled .btn {
   margin-left: 3px;
   text-indent: -999px;
   cursor: pointer;
-  background-color: #747DEF;
+  background-color: #03b4c6;
   background-clip: padding-box;
   border: 0;
   border-top: 0 solid transparent;
@@ -6976,7 +6976,7 @@ fieldset:disabled .btn {
 }
 
 .link-primary {
-  color: #747DEF;
+  color: #03b4c6;
 }
 
 .link-primary:hover, .link-primary:focus {
@@ -7499,7 +7499,7 @@ fieldset:disabled .btn {
 }
 
 .border-primary {
-  border-color: #747DEF !important;
+  border-color: #03b4c6 !important;
 }
 
 .border-secondary {
@@ -9324,7 +9324,7 @@ fieldset:disabled .btn {
 
 /* rtl:end:remove */
 .text-primary {
-  color: #747DEF !important;
+  color: #03b4c6 !important;
 }
 
 .text-secondary {
@@ -9452,7 +9452,7 @@ fieldset:disabled .btn {
 }
 
 .bg-primary {
-  background-color: #747DEF !important;
+  background-color: #03b4c6 !important;
 }
 
 .bg-secondary {
@@ -10041,7 +10041,7 @@ fieldset:disabled .btn {
     border-color: #FFFEFE !important;
   }
   .border-sm-primary {
-    border-color: #747DEF !important;
+    border-color: #03b4c6 !important;
   }
   .border-sm-secondary {
     border-color: #544837 !important;
@@ -11702,7 +11702,7 @@ fieldset:disabled .btn {
     border-color: #FFFEFE !important;
   }
   .border-md-primary {
-    border-color: #747DEF !important;
+    border-color: #03b4c6 !important;
   }
   .border-md-secondary {
     border-color: #544837 !important;
@@ -13363,7 +13363,7 @@ fieldset:disabled .btn {
     border-color: #FFFEFE !important;
   }
   .border-lg-primary {
-    border-color: #747DEF !important;
+    border-color: #03b4c6 !important;
   }
   .border-lg-secondary {
     border-color: #544837 !important;
@@ -15024,7 +15024,7 @@ fieldset:disabled .btn {
     border-color: #FFFEFE !important;
   }
   .border-xl-primary {
-    border-color: #747DEF !important;
+    border-color: #03b4c6 !important;
   }
   .border-xl-secondary {
     border-color: #544837 !important;
@@ -17082,7 +17082,7 @@ iframe {
 |   Custom circle
 -----------------------------------------------*/
 .circle-dashed {
-  border: 1px dashed #747DEF;
+  border: 1px dashed #03b4c6;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -17211,7 +17211,7 @@ iframe {
 }
 
 .icon-primary {
-  color: #747DEF;
+  color: #03b4c6;
 }
 
 .icon-secondary {

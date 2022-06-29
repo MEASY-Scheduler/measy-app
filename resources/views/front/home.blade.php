@@ -2,13 +2,13 @@
 
 @section('content')
 
-      <section class="pt-3">
-        <div class="container">
+      <section class="pt-5">
+        <div class="container-fluid">
           <div class="row align-items-center">
             <div class="col-md-6 text-md-start text-center py-6">
               <h1 class="mb-4 fs-12 fw-bold">Scheduling <br/> Made Easy</h1>
               <p class="mb-6 lead text-secondary">Measy is the fastest and easiest way to schedule anything  from meetings to the next great collaboration.</p>
-              <div class="text-center text-md-start"><a class="btn btn-warning me-3 btn-lg btn-block" href="#!" role="button">Get started</a></div>
+              <div class="text-center text-md-start"><a class="btn btn-warning me-3 btn-lg w-100" href="#!" role="button">Get started</a></div>
             </div>
             <div class="col-md-6 text-end"><img class="pt-7 pt-md-0 img-fluid" src="{{asset('frontassets/assets')}}/img/hero/hero-img.jpg" alt="" /></div>
           </div>
@@ -18,7 +18,7 @@
 
       <!-- ============================================-->
       <!-- <section> begin ============================-->
-      <section class="pt-3 pt-md-3 mb-6" id="feature">
+      <section class="pt-4 pt-md-4 mb-6" id="feature">
 
         <div class="bg-holder z-index--1 bottom-0 d-none d-lg-block" style="background-image:url({{asset('frontassets/assets')}}/img/category/shape.png);opacity:.5;">
         </div>
@@ -115,92 +115,36 @@
         <div class="container">
           <h1 class="fw-bold fs-6 mb-3 text-center">Made to collaborate with  your tools, too</h1>
           <p class="mb-6 text-secondary text-center">Measy can unite directly with your favourite app</p>
-          <div class="row gx-1" style="margin-top: 80px;">
+          <div class="row gx-5" style="margin-top: 80px;">
             
             <div class="col-lg-4 col-sm-6 mb-2"> 
 
-                <div style="border: 5px solid #0F68D8; border-radius: 30px;">
-                    <img class="mb-3 ms-n3 mx-auto" src="{{asset('frontassets/assets/img/zoom.png')}}" alt="Feature" width="200" />
+                <div class="tools-container tools-zoom">
+                    <img class="mb-3 tools-image" src="{{asset('frontassets/assets/img/zoom.png')}}" alt="Tools" />
                 </div>
+                  <p class="tools-title">Zoom</p>
             </div>
             
-            <div class="col-lg-4 col-sm-6 mb-2" style=""> 
-              <img class="mb-3 ms-n3 mx-auto" src="{{asset('frontassets/assets/img/meet.png')}}" alt="Feature" width="300" />
+            <div class="col-lg-4 col-sm-6 mb-2" style="">
+
+              <div class="tools-container tools-meet">
+                <img class="mb-3 tools-image" src="{{asset('frontassets/assets/img/meet.png')}}" alt="Tools" />
+              </div>
+
+              <p class="tools-title">Meet</p>
             </div>
             
             <div class="col-lg-4 col-sm-6 mb-2"> 
-              <img class="mb-3 ms-n3 mx-auto" src="{{asset('frontassets/assets/img/teams.png')}}" alt="Feature" width="300" />
+              <div class="tools-container tools-teams">
+
+                <img class="mb-3 tools-image" src="{{asset('frontassets/assets/img/teams.png')}}" alt="Tools" />
+
+                </div>
+
+                <p class="tools-title">Teams</p>
             </div>
             
 
-          </div>
-        </div><!-- end of .container-->
-
-      </section>
-      <!-- <section> close ============================-->
-      <!-- ============================================-->
-
-
-
-
-      <!-- ============================================-->
-      <!-- <section> begin ============================-->
-      <section class="pb-2 pb-lg-5">
-
-        <div class="container">
-          <div class="row border-top border-top-secondary pt-7">
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-6 mb-lg-0 mb-sm-2 order-1 order-md-1 order-lg-1"><img class="mb-4" src="{{asset('frontassets/assets')}}/img/logo.svg" width="184" alt="" /></div>
-            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 order-3 order-md-3 order-lg-2">
-              <p class="fs-2 mb-lg-4">Quick Links</p>
-              <ul class="list-unstyled mb-0">
-                <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" href="#!">About us</a></li>
-                <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" href="#!">Blog</a></li>
-                <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" href="#!">Contact</a></li>
-                <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" href="#!">FAQ</a></li>
-              </ul>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 order-4 order-md-4 order-lg-3">
-              <p class="fs-2 mb-lg-4">Legal stuff</p>
-              <ul class="list-unstyled mb-0">
-                <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" href="#!">Disclaimer</a></li>
-                <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" href="#!">Financing</a></li>
-                <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" href="#!">Privacy Policy</a></li>
-                <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" href="#!">Terms of Service</a></li>
-              </ul>
-            </div>
-            <div class="col-lg-3 col-md-6 col-6 mb-4 mb-lg-0 order-2 order-md-2 order-lg-4">
-              <p class="fs-2 mb-lg-4">
-                knowing you're always on the best energy deal.</p>
-              <form class="mb-3">
-                <input class="form-control" type="email" placeholder="Enter your phone Number" aria-label="phone" />
-              </form>
-              <button class="btn btn-warning fw-medium py-1">Sign up Now</button>
-            </div>
-          </div>
-        </div><!-- end of .container-->
-
-      </section>
-      <!-- <section> close ============================-->
-      <!-- ============================================-->
-
-
-
-
-      <!-- ============================================-->
-      <!-- <section> begin ============================-->
-      <section class="text-center py-0">
-
-        <div class="container">
-          <div class="container border-top py-3">
-            <div class="row justify-content-between">
-              <div class="col-12 col-md-auto mb-1 mb-md-0">
-                <p class="mb-0">&copy; 2022 Your Company Inc </p>
-              </div>
-              <div class="col-12 col-md-auto">
-                <p class="mb-0">
-                  Made with<span class="fas fa-heart mx-1 text-danger"> </span>by <a class="text-decoration-none ms-1" href="https://themewagon.com/" target="_blank">ThemeWagon</a></p>
-              </div>
-            </div>
           </div>
         </div><!-- end of .container-->
 
