@@ -37,10 +37,13 @@ Route::prefix('user')->group(function() {
         ->name('auth.callback');
 
     Route::post('/forgot-password', [AuthController::class, 'forgot_password'])
-        ->middleware('guest')
         ->name('password.forgot');
 
 });
+
+Route::get('/reset-password/{token}', function ($token) {
+    return view('auth.reset-password', ['token' => $token]);
+})->middleware('guest')->name('password.reset');
 
 Route::get('/email/verify', function() {
     return view('auth.verify-email');

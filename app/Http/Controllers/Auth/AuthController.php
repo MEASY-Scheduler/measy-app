@@ -9,12 +9,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Support\Facades\Password;
 
 class AuthController extends Controller
 {
     public function __construct()   
     {
-        $this->middleware('auth:sanctum')->except('register', 'login');
+        $this->middleware('auth:sanctum')->except('register', 'login', 'forgot_password');
     }
 
     public function register(UserRequest $request)
@@ -90,6 +91,33 @@ class AuthController extends Controller
         return response([
             "message" => "User logout successfully!"
         ], 200);
+    }
+
+    public function forgot_password(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|string|email'
+        ]);
+
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        return $status === Password::RESET_LINK_SENT ? back()->with(['status' => __($status)]) : back()->withErrors(['email' => __($status)]);
+        // dd($request_status->title);
+        // if($request_status)
+        // {
+        //     // dd($status);
+        //     return "Email sent!";
+        // }else {
+        //     return "No user found!";
+        // }
+
+        // return response([
+        //     'message' => "Sucess, a reset link has been sent your email address!"
+        // ]);
+        // return $request_status;
+
     }
 
 
