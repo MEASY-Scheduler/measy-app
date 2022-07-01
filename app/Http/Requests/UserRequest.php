@@ -25,13 +25,13 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'email' => 'required|string|unique:users,email',
+            'email' => 'required|string|email|indisposable|unique:users,email',
             'password' => 'required|string|min:8|confirmed',
-            'phone_no' => 'string',
-            'cell_phone_no' => 'string',
-            'organization' => 'string',
-            'job_title' => 'string',
-            'occupation' => 'string'
+            'phone_no' => 'nullable|string',
+            'cell_phone_no' => 'nullable|string',
+            'organization' => 'nullable|string',
+            'job_title' => 'nullable|string',
+            'occupation' => 'nullable|string'
         ];
     }
 }
