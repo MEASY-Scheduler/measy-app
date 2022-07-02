@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\UserController\PollController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -39,6 +40,11 @@ Route::prefix('user')->group(function() {
     Route::post('/forgot-password', [AuthController::class, 'forgot_password'])
         ->name('password.forgot');
 
+});
+
+Route::prefix('poll')->middleware(['auth:sanctum'])->group(function() {
+    Route::get('/all', [PollController::class, 'index'])
+        ->name('mypoll');
 });
 
 Route::get('/reset-password/{token}', function ($token) {

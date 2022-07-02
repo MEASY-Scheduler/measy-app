@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -31,9 +32,9 @@ class Poll extends Model
     ];
 
     protected $cast = [
-        'main_stakeholders' => 'array',
-        'other_stakeholders' => 'array',
-        'speakers' => 'array',
-        'other_attendees' => 'array',
+        'main_stakeholders' => AsArrayObject::class,
+        'other_stakeholders' => AsArrayObject::class,
+        'speakers' => AsArrayObject::class,
+        'other_attendees' => AsArrayObject::class,
     ];
 }

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\UserController;
 
-use App\Http\Controllers\Controller;
+use App\Models\Poll;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PollController extends Controller
 {
@@ -14,7 +15,9 @@ class PollController extends Controller
      */
     public function index()
     {
-        //
+        $poll = Poll::findOrFail(1);
+
+        return $poll;
     }
 
     /**

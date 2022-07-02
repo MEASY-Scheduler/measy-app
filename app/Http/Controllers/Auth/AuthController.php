@@ -37,14 +37,10 @@ class AuthController extends Controller
 
         $token = $user->createToken('measyappproject2022')->plainTextToken;
 
-        $user_and_token = [
-            $user,
-            $token
-        ];
-
         return response([
             "message" => "User created successfully!",
-            "user" => $user_and_token
+            "user" => $user,
+            "token" => $token
         ], 201);
 
     }
@@ -75,14 +71,10 @@ class AuthController extends Controller
 
         $token = $user->createToken('measyappproject2022')->plainTextToken;
 
-        $user_and_token = [
-            $user,
-            $token
-        ];
-
         return response([
             "message" => "Login Successfully!",
-            "token" => $user_and_token
+            "user" => $user,
+            "token" => $token
         ]);
     }
 
