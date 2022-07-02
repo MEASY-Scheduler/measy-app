@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\UserController\PollController;
+use App\Models\User;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -28,7 +29,7 @@ Route::prefix('user')->group(function() {
     Route::post('/login', [AuthController::class, 'login'])
         ->name('login');
 
-    Route::get('/logout', [AuthController::class, 'logout'])
+    Route::middleware('auth:sanctum')->get('/logout', [AuthController::class, 'logout'])
         ->name('logout');
 
     Route::get('/auth/google', [GoogleAuthController::class, 'redirect_to_google'])
@@ -71,8 +72,3 @@ Route::post('/email/verification-notification', function(Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])
 ->name('verification.send');
-
-
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });

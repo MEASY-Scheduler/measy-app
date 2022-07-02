@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\UserController;
 
 use App\Models\Poll;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -13,11 +14,11 @@ class PollController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $poll = Poll::findOrFail(1);
+        $polls = $request->user()->polls;
 
-        return $poll;
+        return response($polls);
     }
 
     /**

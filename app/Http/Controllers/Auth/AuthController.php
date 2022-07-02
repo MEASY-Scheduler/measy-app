@@ -6,17 +6,14 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 class AuthController extends Controller
 {
-    public function __construct()   
-    {
-        $this->middleware('auth:sanctum')->except('register', 'login', 'forgot_password');
-    }
 
     public function register(UserRequest $request)
     {
@@ -78,13 +75,13 @@ class AuthController extends Controller
         ]);
     }
 
-    public function logout()
-    {
-        auth()->user()->tokens()->delete;
+    public function logout(Request $request)
+    { 
+        $request->user()->currentAccessToken()->delete();
 
         return response([
             "message" => "User logout successfully!"
-        ], 200);
+        ]);
     }
 
     public function forgot_password(Request $request)

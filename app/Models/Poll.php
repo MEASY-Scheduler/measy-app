@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class Poll extends Model
 {
@@ -37,4 +37,14 @@ class Poll extends Model
         'speakers' => AsArrayObject::class,
         'other_attendees' => AsArrayObject::class,
     ];
+
+    // public function user()
+    // {
+    //     return $this->hasMany(User::class);
+    // }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
