@@ -6,6 +6,7 @@ use App\Models\Poll;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PollRequest;
 
 class PollController extends Controller
 {
@@ -27,7 +28,7 @@ class PollController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PollRequest $request)
     {
         //
     }
