@@ -46,6 +46,18 @@ Route::prefix('user')->group(function() {
 Route::prefix('poll')->middleware(['auth:sanctum'])->group(function() {
     Route::get('/all', [PollController::class, 'index'])
         ->name('mypoll');
+
+    Route::post('/create', [PollController::class, 'store'])
+        ->name('poll');
+
+    Route::get('/{id}', [PollController::class, 'show'])
+        ->name('view');
+
+    Route::put('/edit/{id}', [PollController::class, 'update'])
+        ->name('update');
+
+    Route::delete('/delete/{id}', [PollCOntroller::class, 'destroy'])
+        ->name('delete');
 });
 
 Route::get('/reset-password/{token}', function ($token) {
