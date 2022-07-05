@@ -42,14 +42,6 @@ class AuthController extends Controller
 
     }
 
-    public function show(User $user)
-    {
-        // $user = User::findOrFail($user);
-        // dd($user);
-
-        return response($user);
-    }
-
     public function login(Request $request)
     {
         $fields = $request->validate([

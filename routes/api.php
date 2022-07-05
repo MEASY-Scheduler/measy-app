@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\UserController\PollController;
+use App\Http\Controllers\UserControllrt\ProfileController;
 use App\Models\User;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
@@ -40,6 +41,9 @@ Route::prefix('user')->group(function() {
 
     Route::post('/forgot-password', [AuthController::class, 'forgot_password'])
         ->name('password.forgot');
+
+    Route::put('/editprofile/{id}', [ProfileController::class, 'edit_profile'])
+        ->name('edit_profile');
 
 });
 
