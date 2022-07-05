@@ -1,13 +1,13 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\UserController\PollController;
-use App\Http\Controllers\UserControllrt\ProfileController;
-use App\Models\User;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\UserController\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +24,10 @@ Route::prefix('user')->group(function() {
     Route::post('/register', [AuthController::class, 'register'])
         ->name('register');
     
-    Route::get('/{user}', [AuthController::class, 'show'])
-        ->name('show');
+    // Route::get('/{user}', [AuthController::class, 'show'])
+    //     ->name('show');
+    Route::get('/me', [ProfileController::class, 'user'])
+        ->name('user');
     
     Route::post('/login', [AuthController::class, 'login'])
         ->name('login');
@@ -44,6 +46,8 @@ Route::prefix('user')->group(function() {
 
     Route::put('/editprofile/{id}', [ProfileController::class, 'edit_profile'])
         ->name('edit_profile');
+
+    
 
 });
 

@@ -2,13 +2,14 @@
 
 namespace App\Repositories;
 
-use ProfileRepositoryInterface;
+use App\Interfaces\ProfileRepositoryInterface;
+
 
 
 class ProfileRepository implements ProfileRepositoryInterface
 {
-    public function getUserProfile()
+    public function getUserProfile($currentLoggedInUser)
     {
-        
+        return $currentLoggedInUser->user();
     }
 }

@@ -1,15 +1,31 @@
 <?php
 
-namespace App\Http\Controllers\UserControllrt;
+namespace App\Http\Controllers\UserController;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use App\Http\Requests\UserRequest;
+use App\Http\Controllers\Controller;
+use App\Interfaces\ProfileRepositoryInterface;
 
 class ProfileController extends Controller
 {
-    public function edit_profile(UserRequest $request, $id)
+    private ProfileRepositoryInterface $profilerepository;
+
+    public function __construct(ProfileRepositoryInterface $profilerepository)
     {
-        
+        $this->profilerepository = $profilerepository;
     }
+
+    public function user(Request $request) :JsonResponse
+    {
+        return response()->json([
+            'data' => $this->profilerepository->getUserProfile($request)
+        ]);
+    }
+
+    // public function edit_profile(UserRequest $request, $id)
+    // {
+        
+    // }
 }
