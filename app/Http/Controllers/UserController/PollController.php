@@ -2,16 +2,10 @@
 
 namespace App\Http\Controllers\UserController;
 
-use App\Models\Poll;
-use App\Models\User;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use App\Http\Requests\PollRequest;
 use App\Http\Controllers\Controller;
-use App\Repositories\PollRepository;
-use Illuminate\Support\Facades\Storage;
 use App\Interfaces\PollRepositoryInterface;
 
 class PollController extends Controller
@@ -72,7 +66,7 @@ class PollController extends Controller
     {
         return response()->json([
             'data' => $this->pollRepository->update($request, $id)
-        ], 201);
+        ]);
     }
 
     /**

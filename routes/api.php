@@ -51,7 +51,7 @@ Route::prefix('user')->group(function() {
 
 });
 
-Route::prefix('poll')->middleware(['auth:sanctum'])->group(function() {
+Route::prefix('poll')->middleware(['auth:sanctum', 'auth.session'])->group(function() {
     Route::get('/all', [PollController::class, 'index'])
         ->name('mypoll');
 
@@ -78,7 +78,7 @@ Route::get('/email/verify', function() {
 ->name('verification.notice');
 
  
-Route::get('/email/verify/{id}/{hash}', function(EmailVerificationRequest $request) {
+Route::post('/email/verify/{id}/{hash}', function(EmailVerificationRequest $request) {
     $request->fulfill();
  
     return redirect('/home');
