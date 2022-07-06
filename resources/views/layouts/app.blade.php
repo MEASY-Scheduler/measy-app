@@ -12,6 +12,12 @@
             background-color: #eae9e9 !important;
         }
     </style>
+
+    <script>
+        var BASE_URL = "{{ url('/') }}";
+        var CSRF_TOKEN = "{{ csrf_token() }}";
+
+    </script>
 </head>
 <body>
 <div id="app">

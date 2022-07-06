@@ -14,13 +14,14 @@ class AuthController extends Controller
 {
     public function __construct()   
     {
-        $this->middleware('auth')->except('register', 'login');
+        $this->middleware('auth:sanctum')->except('register', 'login');
     }
 
     public function register(UserRequest $request)
     {
         $user = new User;
-        $user->name = $request->name;
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->phone_no = $request->phone_no ? $request->phone_no : null;
