@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\UserController\PollController;
+use App\Models\User;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -27,7 +29,7 @@ Route::prefix('user')->group(function() {
     Route::post('/login', [AuthController::class, 'login'])
         ->name('login');
 
-    Route::get('/logout', [AuthController::class, 'logout'])
+    Route::middleware('auth:sanctum')->get('/logout', [AuthController::class, 'logout'])
         ->name('logout');
 
     Route::get('/auth/google', [GoogleAuthController::class, 'redirect_to_google'])
@@ -36,7 +38,31 @@ Route::prefix('user')->group(function() {
     Route::get('/auth/google/callback', [GoogleAuthController::class, 'google_callback'])
         ->name('auth.callback');
 
+    Route::post('/forgot-password', [AuthController::class, 'forgot_password'])
+        ->name('password.forgot');
+
 });
+
+Route::prefix('poll')->middleware(['auth:sanctum'])->group(function() {
+    Route::get('/all', [PollController::class, 'index'])
+        ->name('mypoll');
+
+    Route::post('/create', [PollController::class, 'store'])
+        ->name('poll');
+
+    Route::get('/{id}', [PollController::class, 'show'])
+        ->name('view');
+
+    Route::put('/edit/{id}', [PollController::class, 'update'])
+        ->name('update');
+
+    Route::delete('/delete/{id}', [PollCOntroller::class, 'destroy'])
+        ->name('delete');
+});
+
+Route::get('/reset-password/{token}', function ($token) {
+    return view('auth.reset-password', ['token' => $token]);
+})->middleware('guest')->name('password.reset');
 
 Route::get('/email/verify', function() {
     return view('auth.verify-email');
@@ -58,8 +84,3 @@ Route::post('/email/verification-notification', function(Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])
 ->name('verification.send');
-
-
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
