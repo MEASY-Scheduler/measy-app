@@ -17,15 +17,29 @@ class ProfileController extends Controller
         $this->profilerepository = $profilerepository;
     }
 
-    public function user(Request $request) :JsonResponse
+    public function my_profile(Request $request) :JsonResponse
     {
         return response()->json([
             'data' => $this->profilerepository->getUserProfile($request)
         ]);
     }
 
-    // public function edit_profile(UserRequest $request, $id)
-    // {
-        
-    // }
+    public function edit_profile(Request $request): JsonResponse
+    {
+        $id = auth()->user()->id;
+        return response()->json([
+            'messsage' => "User profile updated successfully!",
+            'data' => $this->profilerepository->editUserProfile($request, $id)
+        ]);
+    }
+
+    public function change_email(Request $request): JsonResponse
+    {
+        $id = auth()->user()->id;
+        // $this->profilerepository->changeEmail($request, $id);
+        return response()->json([
+            'data' => $this->profilerepository->changeEmail($request, $id),
+            'message' => 'Email updated successfully! please check your email for verification link and log in with your new email address'
+        ]);
+    }
 }

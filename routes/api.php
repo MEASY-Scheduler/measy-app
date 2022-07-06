@@ -43,7 +43,7 @@ Route::prefix('auth')->group(function() {
 
 });
 
-Route::prefix('poll')->middleware(['auth:sanctum', 'auth.session'])->group(function() {
+Route::prefix('poll')->middleware(['auth:sanctum', 'auth.session', 'verified'])->group(function() {
     Route::get('/all', [PollController::class, 'index'])
         ->name('mypoll');
 
@@ -60,8 +60,15 @@ Route::prefix('poll')->middleware(['auth:sanctum', 'auth.session'])->group(funct
         ->name('delete');
 });
 
-Route::prefix('user')->middleware(['auth.session', 'auth:sanctum'])->group(function() {
-    
+Route::prefix('user')->middleware(['auth:sanctum', 'auth.session', 'verified'])->group(function() {
+    Route::get('/me', [ProfileController::class, 'my_profile'])
+        ->name('me');
+
+    Route::put('/edit_profile', [ProfileController::class, 'edit_profile'])
+        ->name('edit_profile');
+
+    Route::put('/change_email', [ProfileController::class, 'change_email'])
+        ->name('change_email');
 });
 
 Route::get('/reset-password/{token}', function ($token) {
@@ -74,10 +81,10 @@ Route::get('/email/verify', function() {
 ->name('verification.notice');
 
  
-Route::post('/email/verify/{id}/{hash}', function(EmailVerificationRequest $request) {
+Route::get('/email/verify/{id}/{hash}', function(EmailVerificationRequest $request) {
     $request->fulfill();
  
-    return redirect('/home');
+    return redirect('/');
 })->middleware(['auth', 'signed'])
 ->name('verification.verify');
 
@@ -86,5 +93,5 @@ Route::post('/email/verification-notification', function(Request $request) {
     $request->user()->sendEmailVerificationNotification();
  
     return back()->with('message', 'Verification link sent!');
-})->middleware(['auth', 'throttle:6,1'])
+})->middleware(['auth:sanctum', 'throttle:6,1'])
 ->name('verification.send');
