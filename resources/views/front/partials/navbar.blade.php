@@ -9,7 +9,7 @@
             <li class="nav-item"><a class="nav-link" aria-current="page" href="#">Contact</a></li>
             <li class="nav-item"><a class="nav-link" aria-current="page" href="#">FAQ</a></li>
         </ul>
-        <div class="d-flex ms-lg-4"><a class="btn btn-secondary-outline" href="{{ route('signin') }}">Sign In</a><a class="btn btn-warning ms-3" href="{{ route('signup') }}">Sign Up</a></div>
+        <div class="d-flex ms-lg-4"><a class="btn btn-secondary-outline" href="/login">Sign In</a><a class="btn btn-warning ms-3" href="/register">Sign Up</a></div>
         </div>
     </div>
 </nav>

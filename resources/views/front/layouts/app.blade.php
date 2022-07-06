@@ -25,6 +25,8 @@
     <link rel="manifest" href="{{asset('frontassets/assets')}}/img/favicons/manifest.json">
     <meta name="msapplication-TileImage" content="{{asset('frontassets/assets')}}/img/favicons/mstile-150x150.png">
     <meta name="theme-color" content="#ffffff">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
     <link href="http://fonts.cdnfonts.com/css/molle" rel="stylesheet">
 
@@ -35,6 +37,12 @@
     <link href="{{asset('frontassets/assets')}}/css/style.css" rel="stylesheet" />
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+        var BASE_URL = "{{ url('/') }}";
+        var CSRF_TOKEN = "{{ csrf_token() }}";
+
+    </script>
 
   </head>
 

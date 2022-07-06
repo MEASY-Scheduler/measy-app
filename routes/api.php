@@ -19,15 +19,10 @@ use App\Http\Controllers\UserController\ProfileController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::prefix('user')->group(function() {
+Route::prefix('auth')->group(function() {
 
     Route::post('/register', [AuthController::class, 'register'])
         ->name('register');
-    
-    // Route::get('/{user}', [AuthController::class, 'show'])
-    //     ->name('show');
-    Route::get('/me', [ProfileController::class, 'user'])
-        ->name('user');
     
     Route::post('/login', [AuthController::class, 'login'])
         ->name('login');
@@ -35,17 +30,14 @@ Route::prefix('user')->group(function() {
     Route::middleware('auth:sanctum')->get('/logout', [AuthController::class, 'logout'])
         ->name('logout');
 
-    Route::get('/auth/google', [GoogleAuthController::class, 'redirect_to_google'])
+    Route::get('/google', [GoogleAuthController::class, 'redirect_to_google'])
         ->name('auth.google');
 
-    Route::get('/auth/google/callback', [GoogleAuthController::class, 'google_callback'])
+    Route::get('/google/callback', [GoogleAuthController::class, 'google_callback'])
         ->name('auth.callback');
 
     Route::post('/forgot-password', [AuthController::class, 'forgot_password'])
         ->name('password.forgot');
-
-    Route::put('/editprofile/{id}', [ProfileController::class, 'edit_profile'])
-        ->name('edit_profile');
 
     
 
@@ -66,6 +58,10 @@ Route::prefix('poll')->middleware(['auth:sanctum', 'auth.session'])->group(funct
 
     Route::delete('/delete/{id}', [PollCOntroller::class, 'destroy'])
         ->name('delete');
+});
+
+Route::prefix('user')->middleware(['auth.session', 'auth:sanctum'])->group(function() {
+    
 });
 
 Route::get('/reset-password/{token}', function ($token) {

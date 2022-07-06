@@ -14,9 +14,12 @@ window.Vue = require('vue').default;
 
 
 import VueAxios from 'vue-axios';
-import VueRouter from 'vue-router';
 import axios from 'axios';
-import { routes } from './routes';
+
+
+import router from './router'
+import store from './store'
+
 
 
 Vue.use(VueAxios, axios);
@@ -48,16 +51,12 @@ Vue.component('index-component', require('./components/IndexComponent.vue').defa
  */
 
 
- Vue.use(VueRouter);
  Vue.use(VueAxios, axios);
 
- const router = new VueRouter({
-    mode: 'history',
-    routes: routes
-});
  
 const app = new Vue({
     el: '#app',
     router: router,
+    store:store,
     render: h => h(App),
 });
