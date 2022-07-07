@@ -14,25 +14,17 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 class AuthController extends Controller
 {
-<<<<<<< HEAD
     public function __construct()   
     {
         $this->middleware('auth:sanctum')->except('register', 'login');
     }
-=======
->>>>>>> 35326a314fc5f0dd726f5c2b60d50d05d569656d
 
     public function register(UserRequest $request)
     {
         $user = new User;
-<<<<<<< HEAD
-        $user->first_name = $request->first_name;
-        $user->last_name = $request->last_name;
-=======
 
         $user->firstname = $request->firstname;
         $user->lastname = $request->lastname;
->>>>>>> 35326a314fc5f0dd726f5c2b60d50d05d569656d
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->phone_no = $request->phone_no;
