@@ -37,7 +37,8 @@ class User extends Authenticatable implements MustVerifyEmailContract
     protected $hidden = [
         'password',
         'remember_token',
-        'google_id'
+        'google_id',
+        'user_id',
     ];
 
     /**

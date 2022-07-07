@@ -40,7 +40,7 @@ class PollRequest extends FormRequest
             'other_attendees' => 'required|array',
             'event_start_date_range' => 'required|string',
             'event_end_date_range' => 'required|string',
-            'user_id' => 'required|integer',
+            'user_id' => 'nullable|integer',
         ];
     }
 }

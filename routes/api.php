@@ -1,12 +1,13 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\UserController\PollController;
-use App\Models\User;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\UserController\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +19,10 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::prefix('user')->group(function() {
+Route::prefix('auth')->group(function() {
 
     Route::post('/register', [AuthController::class, 'register'])
         ->name('register');
-    
-    Route::get('/{user}', [AuthController::class, 'show'])
-        ->name('show');
     
     Route::post('/login', [AuthController::class, 'login'])
         ->name('login');
@@ -32,18 +30,20 @@ Route::prefix('user')->group(function() {
     Route::middleware('auth:sanctum')->get('/logout', [AuthController::class, 'logout'])
         ->name('logout');
 
-    Route::get('/auth/google', [GoogleAuthController::class, 'redirect_to_google'])
+    Route::get('/google', [GoogleAuthController::class, 'redirect_to_google'])
         ->name('auth.google');
 
-    Route::get('/auth/google/callback', [GoogleAuthController::class, 'google_callback'])
+    Route::get('/google/callback', [GoogleAuthController::class, 'google_callback'])
         ->name('auth.callback');
 
     Route::post('/forgot-password', [AuthController::class, 'forgot_password'])
         ->name('password.forgot');
 
+    
+
 });
 
-Route::prefix('poll')->middleware(['auth:sanctum'])->group(function() {
+Route::prefix('poll')->middleware(['auth:sanctum', 'auth.session'])->group(function() {
     Route::get('/all', [PollController::class, 'index'])
         ->name('mypoll');
 
@@ -60,6 +60,10 @@ Route::prefix('poll')->middleware(['auth:sanctum'])->group(function() {
         ->name('delete');
 });
 
+Route::prefix('user')->middleware(['auth.session', 'auth:sanctum'])->group(function() {
+    
+});
+
 Route::get('/reset-password/{token}', function ($token) {
     return view('auth.reset-password', ['token' => $token]);
 })->middleware('guest')->name('password.reset');
@@ -70,7 +74,7 @@ Route::get('/email/verify', function() {
 ->name('verification.notice');
 
  
-Route::get('/email/verify/{id}/{hash}', function(EmailVerificationRequest $request) {
+Route::post('/email/verify/{id}/{hash}', function(EmailVerificationRequest $request) {
     $request->fulfill();
  
     return redirect('/home');

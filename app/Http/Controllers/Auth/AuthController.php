@@ -6,113 +6,60 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
+use App\Interfaces\AuthRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\JsonResponse;
 
 class AuthController extends Controller
 {
-    public function __construct()   
+
+    private AuthRepositoryInterface $authRepository;
+
+    public function __construct(AuthRepositoryInterface $authRepository)
     {
-        $this->middleware('auth:sanctum')->except('register', 'login');
+        $this->authRepository = $authRepository;
     }
 
-    public function register(UserRequest $request)
+    public function register(UserRequest $request): JsonResponse
     {
-        $user = new User;
-
-        $user->firstname = $request->firstname;
-        $user->lastname = $request->lastname;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->phone_no = $request->phone_no;
-        $user->cell_phone_no = $request->cell_phone_no;
-        $user->organization = $request->organization;
-        $user->job_title = $request->job_title;
-        $user->occupation = $request->occupation;
-
-        $user->save();
-        event(new Registered($user));
-
-        $token = $user->createToken('measyappproject2022')->plainTextToken;
-
-        return response([
-            "message" => "User created successfully!",
-            "user" => $user,
-            "token" => $token
+        return response()->json([
+            'message' => "User Signup successfully!",
+            'data' => $this->authRepository->register($request)
         ], 201);
-
     }
 
-    public function show(User $user)
+    public function login(Request $request): JsonResponse
     {
-        // $user = User::findOrFail($user);
-        // dd($user);
-
-        return response($user);
-    }
-
-    public function login(Request $request)
-    {
-        $fields = $request->validate([
-            'email' => 'required|string',
-            'password' => 'required|string'
-        ]);
-
-        $user = User::where('email', $fields['email'])->first();
-
-        if(!$user || !Hash::check($fields['password'], $user->password))
+        if(!($this->authRepository->login($request)))
         {
-            return response([
-                "message" => "Whoops! That credentials does not match any of our records!"
+            return response()->json([
+                'message' => "Whoops, that credentials does not match any of our records!",
             ], 400);
         }
 
-        $token = $user->createToken('measyappproject2022')->plainTextToken;
-
-        return response([
-            "message" => "Login Successfully!",
-            "user" => $user,
-            "token" => $token
-        ]);
+        return response()->json([
+            'message' => "User logged in successfully!",
+            'data' => $this->authRepository->login($request),
+            ]);
     }
 
-    public function logout(Request $request)
-    { 
-        $request->user()->currentAccessToken()->delete();
-
-        return response([
-            "message" => "User logout successfully!"
-        ]);
-    }
-
-    public function forgot_password(Request $request)
+    public function logout(): JsonResponse
     {
-        $request->validate([
-            'email' => 'required|string|email'
+        $this->authRepository->logout();
+        return response()->json([
+            'message' => "User logged out successfully!",
         ]);
+    }
 
-        $status = Password::sendResetLink(
-            $request->only('email')
-        );
-
-        return $status === Password::RESET_LINK_SENT ? back()->with(['status' => __($status)]) : back()->withErrors(['email' => __($status)]);
-        // dd($request_status->title);
-        // if($request_status)
-        // {
-        //     // dd($status);
-        //     return "Email sent!";
-        // }else {
-        //     return "No user found!";
-        // }
-
-        // return response([
-        //     'message' => "Sucess, a reset link has been sent your email address!"
-        // ]);
-        // return $request_status;
-
+    public function forgot_password(Request $request): JsonResponse
+    {
+        return response()->json([
+            'message' => $this->authRepository->forgot_password($request),
+        ]);
     }
 
 
