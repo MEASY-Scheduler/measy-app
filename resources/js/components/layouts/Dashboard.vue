@@ -1,33 +1,14 @@
 <template>
-    <div>
-        <nav class="navbar navbar-expand-lg ">
-            <a href="https://techvblogs.com/?ref=project" target="_blank" class="navbar-brand">TechvBlogs</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <router-link :to="{name:'dashboard'}" class="nav-link">Home <span class="sr-only">(current)</span></router-link>
-                    </li>
-                </ul>
-                <div class="ml-auto">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ user.first_name }}
-                    </a>
-                        <a class="dropdown-item" href="javascript:void(0)" @click="logout">Logout</a>
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdownMenuLink">
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <main class="mt-3">
+    <div class="container">
+        <div class="col-12">
+            <a class="dropdown-item" href="javascript:void(0)" @click="logout">Logout</a>
+            <label> <router-link :to="{name:'dashboard'}">All Polls</router-link></label>
+            <label> <router-link :to="{name:'poll.create'}">Create Poll</router-link></label>
+            <label> <router-link :to="{name:'poll.meeting-times'}">Poll Meeting TImes</router-link></label>
+        </div>
+        
             <router-view></router-view>
-        </main>
+        
     </div>
 </template>
 
@@ -46,9 +27,8 @@ export default {
         }),
         async logout(){
             
-            let url = BASE_URL + '/api/user/logout';
+            let url = BASE_URL + '/api/auth/logout';
 
-            await axios.get('/sanctum/csrf-cookie')
             await axios.get(url).then(({data})=>{
                 this.signOut()
                 this.$router.push({name:"login"})

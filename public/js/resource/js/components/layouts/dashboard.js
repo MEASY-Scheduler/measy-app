@@ -40,25 +40,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "dashboard-layout",
@@ -79,12 +60,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                url = BASE_URL + '/api/user/logout';
+                url = BASE_URL + '/api/auth/logout';
                 _context.next = 3;
-                return axios.get('/sanctum/csrf-cookie');
-
-              case 3:
-                _context.next = 5;
                 return axios.get(url).then(function (_ref) {
                   var data = _ref.data;
 
@@ -95,7 +72,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   });
                 });
 
-              case 5:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -192,129 +169,60 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("nav", { staticClass: "navbar navbar-expand-lg " }, [
-      _c(
-        "a",
-        {
-          staticClass: "navbar-brand",
-          attrs: {
-            href: "https://techvblogs.com/?ref=project",
-            target: "_blank",
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("div", { staticClass: "col-12" }, [
+        _c(
+          "a",
+          {
+            staticClass: "dropdown-item",
+            attrs: { href: "javascript:void(0)" },
+            on: { click: _vm.logout },
           },
-        },
-        [_vm._v("TechvBlogs")]
-      ),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "collapse navbar-collapse",
-          attrs: { id: "navbarSupportedContent" },
-        },
-        [
-          _c("ul", { staticClass: "navbar-nav mr-auto" }, [
+          [_vm._v("Logout")]
+        ),
+        _vm._v(" "),
+        _c(
+          "label",
+          [
+            _c("router-link", { attrs: { to: { name: "dashboard" } } }, [
+              _vm._v("All Polls"),
+            ]),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "label",
+          [
+            _c("router-link", { attrs: { to: { name: "poll.create" } } }, [
+              _vm._v("Create Poll"),
+            ]),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "label",
+          [
             _c(
-              "li",
-              { staticClass: "nav-item active" },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "nav-link",
-                    attrs: { to: { name: "dashboard" } },
-                  },
-                  [
-                    _vm._v("Home "),
-                    _c("span", { staticClass: "sr-only" }, [
-                      _vm._v("(current)"),
-                    ]),
-                  ]
-                ),
-              ],
-              1
+              "router-link",
+              { attrs: { to: { name: "poll.meeting-times" } } },
+              [_vm._v("Poll Meeting TImes")]
             ),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "ml-auto" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link dropdown-toggle",
-                attrs: {
-                  href: "#",
-                  id: "navbarDropdownMenuLink",
-                  role: "button",
-                  "data-toggle": "dropdown",
-                  "aria-haspopup": "true",
-                  "aria-expanded": "false",
-                },
-              },
-              [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(_vm.user.first_name) +
-                    "\n                "
-                ),
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "dropdown-item",
-                attrs: { href: "javascript:void(0)" },
-                on: { click: _vm.logout },
-              },
-              [_vm._v("Logout")]
-            ),
-            _vm._v(" "),
-            _vm._m(1),
-          ]),
-        ]
-      ),
-    ]),
-    _vm._v(" "),
-    _c("main", { staticClass: "mt-3" }, [_c("router-view")], 1),
-  ])
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "navbar-toggler",
-        attrs: {
-          type: "button",
-          "data-toggle": "collapse",
-          "data-target": "#navbarSupportedContent",
-          "aria-controls": "navbarSupportedContent",
-          "aria-expanded": "false",
-          "aria-label": "Toggle navigation",
-        },
-      },
-      [_c("span", { staticClass: "navbar-toggler-icon" })]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "navbar-nav" }, [
-      _c("li", { staticClass: "nav-item dropdown" }, [
-        _c("div", {
-          staticClass: "dropdown-menu dropdown-menu-lg-right",
-          attrs: { "aria-labelledby": "navbarDropdownMenuLink" },
-        }),
+          ],
+          1
+        ),
       ]),
-    ])
-  },
-]
+      _vm._v(" "),
+      _c("router-view"),
+    ],
+    1
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

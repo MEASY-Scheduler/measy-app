@@ -19,8 +19,10 @@ import axios from 'axios';
 
 import router from './router'
 import store from './store'
+import DataTable from 'laravel-vue-datatable';
 
 
+Vue.use(DataTable);
 
 Vue.use(VueAxios, axios);
 

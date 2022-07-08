@@ -14,7 +14,9 @@ const DashboardLayout = () => import('../components/Layouts/Dashboard.vue' /* we
 /* Layouts */
 
 /* Authenticated Component */
-const Dashboard = () => import('../components/Dashboard.vue' /* webpackChunkName: "resource/js/components/dashboard" */)
+const Dashboard = () => import('../components/Dashboard.vue' /* webpackChunkName: "resource/js/components/dashboard" */);
+const CreatePoll = () => import('../components/Poll/CreatePoll.vue');
+const PollMeetingTimes = () => import('../components/Poll/PollMeetingTImes');
 /* Authenticated Component */
 
 
@@ -51,7 +53,25 @@ const Routes = [
                 meta:{
                     title:`Dashboard`
                 }
-            }
+            },
+
+            {
+                name:"poll.create",
+                path: '/poll/create-poll',
+                component: CreatePoll,
+                meta:{
+                    title:`Create Poll`
+                }
+            },
+
+            {
+                name:"poll.meeting-times",
+                path: '/poll/meeting-times',
+                component: PollMeetingTimes,
+                meta:{
+                    title:`Poll Meeting Times`
+                }
+            },
         ]
     }
 ]

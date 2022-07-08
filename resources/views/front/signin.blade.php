@@ -56,13 +56,17 @@
     let password = document.querySelector('#password').value;
 
 
-    let url = BASE_URL + '/api/user/login';
+    let url = BASE_URL + '/api/auth/login';
+
+    let formData = new FormData();
+    formData.append('email', document.querySelector('#email').value);
+    formData.append('password', document.querySelector('#password').value);
+
+
 
     fetch(url, {
       method: "POST",
-      body: {
-        
-      },
+      body: formData,
       headers: {
         'Accept': 'application/json',
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -72,6 +76,9 @@
     .then(data => {
       if(data.errors){
         document.querySelector('#submission-errors').innerHTML = 'Invalid Credentials';
+      }else{
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', data.user);
       }
     })
     .catch(err => console.log(err))
