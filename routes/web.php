@@ -24,7 +24,7 @@ Route::get('axiostest', function () {
 });
 
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/', [HomeController::class, 'index'])->name('home');
 // Route::get('/signin', [HomeController::class, 'signin'])->name('signin');
 // Route::get('/signup', [HomeController::class, 'signup'])->name('signup');
 

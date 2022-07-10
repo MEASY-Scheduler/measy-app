@@ -46,7 +46,6 @@
 <body>
 
     <main class="main" id="top">
-      
       @include('front.partials.navbar')
         <div id="app">
 

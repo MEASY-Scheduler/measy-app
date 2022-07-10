@@ -5,12 +5,13 @@ import store from '../store'
 Vue.use(VueRouter)
 
 /* Guest Component */
+const Home = () => import('../components/front/Home.vue');
 const Login = () => import('../components/Login.vue' /* webpackChunkName: "resource/js/components/login" */)
 const Register = () => import('../components/Register.vue' /* webpackChunkName: "resource/js/components/register" */)
 /* Guest Component */
 
 /* Layouts */
-const DashboardLayout = () => import('../components/Layouts/Dashboard.vue' /* webpackChunkName: "resource/js/components/layouts/dashboard" */)
+const DashboardLayout = () => import('../components/Layouts/DashboardLayout.vue')
 /* Layouts */
 
 /* Authenticated Component */
@@ -21,6 +22,15 @@ const PollMeetingTimes = () => import('../components/Poll/PollMeetingTImes');
 
 
 const Routes = [
+    {
+        name:"home",
+        path:"/",
+        component:Home,
+        meta:{
+            middleware:"guest",
+            title:`Home`
+        }
+    },
     {
         name:"login",
         path:"/login",
@@ -82,7 +92,7 @@ var router  = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    document.title = `${to.meta.title} - ${process.env.MIX_APP_NAME}`
+    document.title = `Free online meeting scheduling tool - ${to.meta.title}`
     if(to.meta.middleware=="guest"){
         if(store.state.auth.authenticated){
             next({name:"dashboard"})

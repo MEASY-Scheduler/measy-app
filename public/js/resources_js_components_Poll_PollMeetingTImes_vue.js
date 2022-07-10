@@ -70,6 +70,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "poll-meeting-times",
   data: function data() {
@@ -216,55 +244,89 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-12 mb-4" }, [
-          _c("button", { staticClass: "btn btn-primary float-right" }, [
+          _c("button", { staticClass: "btn btn-primary float-end" }, [
             _vm._v("Verify Email Address"),
           ]),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-12 mb-4" }, [
-          _c("label", [_vm._v("Title")]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              placeholder: "What is the occassion about?",
-            },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12 mb-4" }, [
-          _c("label", [_vm._v("Description")]),
+          _c("label", [_vm._v("Other Stakeholders")]),
           _vm._v(" "),
           _c("textarea", {
             staticClass: "form-control",
             attrs: {
               name: "",
               id: "",
-              placeholder: "Here you can provide details of meeting",
+              placeholder:
+                "Copy and Paste Email address  of the main stakeholder or enter manually  seperated by (;)",
             },
           }),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-12 mb-4" }, [
-          _c("label", [_vm._v("Attach Agenda")]),
+        _c("div", { staticClass: "row mb-4" }, [
+          _c("div", { staticClass: "col-12 col-lg-4 mb-3" }, [
+            _c("label", { attrs: { for: "" } }, [_vm._v("Meeting date range")]),
+          ]),
           _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "file", id: "formFile" },
-          }),
+          _c("div", { staticClass: "col-12 col-lg-4 mb-3" }, [
+            _c("label", [_vm._v("Start")]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "" },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-12 col-lg-4 mb-3" }, [
+            _c("label", [_vm._v("End")]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "" },
+            }),
+          ]),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-12 mb-4" }, [
-          _c("label", [_vm._v("Location")]),
+          _c("label", [_vm._v("Duration of Meeting")]),
           _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              placeholder: "Where will this meeting happen?",
-            },
-          }),
+          _c("select", { staticClass: "form-control", attrs: { name: "" } }, [
+            _c("option", [_vm._v("Select")]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-12 mb-4" }, [
+          _c("label", [_vm._v("Choose  number  of  entries: ")]),
+          _vm._v(" "),
+          _c("select", { staticClass: "form-control", attrs: { name: "" } }, [
+            _c("option", [_vm._v("Select")]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row mb-4" }, [
+          _c("div", { staticClass: "col-12 col-lg-4 mb-3" }, [
+            _c("label", { attrs: { for: "" } }, [
+              _vm._v("Deadline For Response"),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-12 col-lg-4 mb-3" }, [
+            _c("label", [_vm._v("Date")]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "" },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-12 col-lg-4 mb-3" }, [
+            _c("label", [_vm._v("Time")]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "" },
+            }),
+          ]),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-12 mb-5" }, [
@@ -290,8 +352,9 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-12 mb-4 mt-5 text-center" }, [
+          _vm._v("\n            Add Calender(s)\n            "),
           _c("button", { staticClass: "btn btn-primary" }, [
-            _vm._v("Choose Meeting Time(s)"),
+            _vm._v("Connect to calender"),
           ]),
         ]),
       ]),

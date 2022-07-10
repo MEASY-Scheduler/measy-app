@@ -19,7 +19,7 @@
 
             <div class="row mb-4">
                 <div class="col-12 col-lg-4 mb-3">
-                    <label for="">Meeting date range</label>
+                    <label for="" class="mt-1">Meeting date range</label>
                 </div>
                 <div class="col-12 col-lg-4 mb-3">
                     <label>Start</label>
@@ -47,7 +47,7 @@
 
             <div class="row mb-4">
                 <div class="col-12 col-lg-4 mb-3">
-                    <label for="">Deadline For Response</label>
+                    <label for="" class="mt-1">Deadline For Response</label>
                 </div>
                 <div class="col-12 col-lg-4 mb-3">
                     <label>Date</label>
@@ -69,7 +69,7 @@
             </div>
 
             <div class="col-12 mb-4 mt-5 text-center">
-                Add Calender(s)
+                <label for="">Add Calender(s)</label>
                 <button class="btn btn-primary">Connect to calender</button>
             </div>
 

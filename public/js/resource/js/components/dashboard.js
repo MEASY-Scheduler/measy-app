@@ -36,6 +36,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "dashboard",
   data: function data() {
@@ -184,11 +185,7 @@ var render = function () {
       _c(
         "div",
         { staticClass: "col-12" },
-        [
-          _c("data-table", {
-            attrs: { columns: _vm.columns, url: "http://example.test/example" },
-          }),
-        ],
+        [_c("data-table", { attrs: { columns: _vm.columns } })],
         1
       ),
     ]),

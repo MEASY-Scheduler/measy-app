@@ -1,10 +1,10 @@
 <template>
     <div class="container">
-        <div class="col-12">
-            <a class="dropdown-item" href="javascript:void(0)" @click="logout">Logout</a>
-            <label> <router-link :to="{name:'dashboard'}">All Polls</router-link></label>
-            <label> <router-link :to="{name:'poll.create'}">Create Poll</router-link></label>
-            <label> <router-link :to="{name:'poll.meeting-times'}">Poll Meeting TImes</router-link></label>
+        <div class="col-12 my-4">
+            <label class="me-5"></label><a class="dropdown-item" href="javascript:void(0)" @click="logout">Logout</a></label>
+            <label class="me-5"> <router-link :to="{name:'dashboard'}">All Polls</router-link></label>
+            <label class="me-5"> <router-link :to="{name:'poll.create'}">Create Poll</router-link></label>
+            <!-- <label class="me-5"> <router-link :to="{name:'poll.meeting-times'}">Poll Meeting TImes</router-link></label> -->
         </div>
         
             <router-view></router-view>

@@ -33,7 +33,7 @@
             </div>
 
             <div class="col-lg-3 col-md-6 mb-4 mb-md-6 mb-lg-0 mb-sm-2 order-1 order-md-1 order-lg-1">
-              <a class="navbar-brand" href="{{ route('home') }}" style="font-family: 'Molle', sans-serif; font-size: 35px; font-weight: 500;">Measy</a>
+              <a class="navbar-brand" href="#" style="font-family: 'Molle', sans-serif; font-size: 35px; font-weight: 500;">Measy</a>
             </div>
             {{-- <div class="col-lg-3 col-md-6 col-6 mb-4 mb-lg-0 order-2 order-md-2 order-lg-4">
               <p class="fs-2 mb-lg-4">
