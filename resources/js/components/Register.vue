@@ -185,9 +185,10 @@ export default {
           all_errors.push(`<p>${data_errors[key][0]}</p>`);
           
         };
+      }else{
+        this.signIn();
       }
 
-      this.signIn();
     })
     .catch(err => console.log(err))
     .finally(() => {

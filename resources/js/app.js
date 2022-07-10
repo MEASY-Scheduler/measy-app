@@ -20,12 +20,16 @@ import axios from 'axios';
 import router from './router'
 import store from './store'
 import DataTable from 'laravel-vue-datatable';
+import VueToastr from "vue-toastr";
+
 
 
 Vue.use(DataTable);
 
 Vue.use(VueAxios, axios);
-
+Vue.use(VueToastr, {
+    /* OverWrite Plugin Options if you need */
+  });
 
 
 import App from './App.vue';

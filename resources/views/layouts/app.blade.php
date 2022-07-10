@@ -33,7 +33,7 @@
     <link href="{{asset('frontassets/assets')}}/css/theme.css" rel="stylesheet" />
     <link href="{{asset('frontassets/assets')}}/css/style.css" rel="stylesheet" />
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{{asset('frontassets/assets')}}/js/jquery.js"></script>
 
     <script>
         var BASE_URL = "{{ url('/') }}";
@@ -48,6 +48,8 @@
     <main class="main" id="top">
       @include('front.partials.navbar')
         <div id="app">
+          <vue-toastr ref="mytoast"></vue-toastr>
+
 
         </div>
         @include('front.partials.footer')

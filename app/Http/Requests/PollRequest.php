@@ -28,19 +28,18 @@ class PollRequest extends FormRequest
             'description' => 'required|string',
             'agenda' => 'nullable|file|mimes:txt,doc,docx,pdf',
             'location' => 'required|string',
-            'main_stakeholders' => 'required|array',
-            'other_stakeholders' => 'required|array',
+            'main_stakeholders' => 'required',
+            'other_stakeholders' => 'required',
             'meeting_start_range' => 'required|string',
             'meeting_end_range' => 'required|string',
             'duration' => 'required|string',
             'no_of_entries' => 'required|string',
             'deadline_date_for_response' => 'required|string',
             'deadline_time_for_response' => 'required|string',
-            'speakers' => 'required|array',
-            'other_attendees' => 'required|array',
+            'speakers' => 'required',
+            'other_attendees' => 'required',
             'event_start_date_range' => 'required|string',
             'event_end_date_range' => 'required|string',
-            'user_id' => 'nullable|integer',
         ];
     }
 }
