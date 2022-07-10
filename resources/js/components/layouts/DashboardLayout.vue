@@ -4,6 +4,9 @@
             <label class="me-5"><a class="dropdown-item" href="javascript:void(0)" @click="logout">Logout</a></label>
             <label class="me-5"> <router-link :to="{name:'dashboard'}">All Polls</router-link></label>
             <label class="me-5"> <router-link :to="{name:'poll.create'}">Create Poll</router-link></label>
+            <label class="me-5"> <router-link :to="{name:'conference-settings'}">Conference Settings</router-link></label>
+            <label class="me-5"> <router-link :to="{name:'account-settings'}">Account Settings</router-link></label>
+            <label class="me-5"> <router-link :to="{name:'notification-settings'}">Nofitication Settings</router-link></label>
             <!-- <label class="me-5"> <router-link :to="{name:'poll.meeting-times'}">Poll Meeting TImes</router-link></label> -->
         </div>
         

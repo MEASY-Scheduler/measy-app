@@ -143,7 +143,7 @@
 
         <div class="container py-5" v-if="currentStep == 3">
             
-            <vue-cal :time-from="8 * 60" :time-to="19 * 60" :time-step="30" :disable-views="['years', 'year', 'week', 'day']" />
+            <vue-cal :time-from="8 * 60" :time-to="19 * 60" :time-step="30" :disable-views="['years', 'year', 'month']" />
 
 
             <div class="col-12 mb-4 mt-5 text-center">

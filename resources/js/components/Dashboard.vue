@@ -11,6 +11,7 @@
                                         <th>Name</th>
                                         <th>Start</th>
                                         <th>End</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody v-if="polls && polls.data.length > 0">
@@ -19,6 +20,12 @@
                                         <td>{{ poll.location }}</td>
                                         <td>{{ poll.meeting_start_range }}</td>
                                         <td>{{ poll.meeting_end_range }}</td>
+                                        <td>
+                                            
+                                            <router-link class="btn btn-primary btn-sm" :to="{name:'poll.view', params: {id: poll.id}}">View</router-link>
+                                            <button class="btn btn-info btn-sm" @click="editPoll(poll.id)">Edit</button>
+                                            <button class="btn btn-danger btn-sm" @click="deletePoll(poll.id)">Delete</button>
+                                        </td>
                                     </tr>
                                 </tbody>
                                 <tbody v-else>

@@ -19,6 +19,9 @@ const Dashboard = () => import('../components/Dashboard.vue' /* webpackChunkName
 const CreatePoll = () => import('../components/Poll/CreatePoll.vue');
 const ViewPoll = () => import('../components/Poll/ViewPoll.vue');
 const PollMeetingTimes = () => import('../components/Poll/PollMeetingTImes');
+const ConferenceSettings = () => import('../components/ConferenceSettings.vue');
+const AccountSettings = () => import('../components/AccountSettings.vue');
+const NotificationSettings = () => import('../components/NotificationSettings.vue');
 /* Authenticated Component */
 
 
@@ -89,6 +92,33 @@ const Routes = [
                 component: PollMeetingTimes,
                 meta:{
                     title:`Poll Meeting Times`
+                }
+            },
+
+            {
+                name:"conference-settings",
+                path: '/poll/conference-settings',
+                component: ConferenceSettings,
+                meta:{
+                    title:`Conference Settings`
+                }
+            },
+
+            {
+                name:"account-settings",
+                path: '/poll/account-settings',
+                component: AccountSettings,
+                meta:{
+                    title:`Account Settings`
+                }
+            },
+            
+            {
+                name:"notification-settings",
+                path: '/poll/notification-settings',
+                component: NotificationSettings,
+                meta:{
+                    title:`Notification Settings`
                 }
             },
         ]
