@@ -77,10 +77,15 @@ class PollController extends Controller
      */
     public function destroy($id) : JsonResponse
     {
-        $this->pollRepository->destroy($id);
+        if(!($this->pollRepository->destroy($id)))
+        {
+            return response()->json([
+                'message' => 'Sorry, no poll find with the id provided!'
+            ], 404);
+        }
 
         return response()->json([
             'message' => 'Poll deleted successfully!',
-        ], 204);
+        ]);
     }
 }

@@ -22,7 +22,13 @@ class PollRepository implements PollRepositoryInterface
 
     public function destroy($id)
     {
-        $poll = Poll::findOrFail($id)->delete();
+        $poll = Poll::where('user_id', $id);
+        if($poll)
+        {
+            Poll::findOrFail($id)->delete();
+        }else{
+            return false;
+        }
     }
 
     public function create(object $polldetails)
