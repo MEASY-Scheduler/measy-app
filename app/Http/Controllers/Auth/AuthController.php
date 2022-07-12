@@ -38,13 +38,13 @@ class AuthController extends Controller
         {
             return response()->json([
                 'message' => "Whoops, that credentials does not match any of our records!",
-            ], 400);
+            ], 400)->header('Content-Type', 'application/json');
         }
 
         return response()->json([
             'message' => "User logged in successfully!",
             'data' => $this->authRepository->login($request),
-            ]);
+            ])->header('Content-Type', 'application/json');
     }
 
     public function logout(): JsonResponse

@@ -35,6 +35,7 @@ export default {
             })
         },
         logout({commit}){
+            localStorage.setItem("app_token", '')
             commit('SET_USER',{})
             commit('SET_AUTHENTICATED',false)
         }

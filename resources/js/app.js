@@ -19,11 +19,17 @@ import axios from 'axios';
 
 import router from './router'
 import store from './store'
+import DataTable from 'laravel-vue-datatable';
+import VueToastr from "vue-toastr";
 
 
+
+Vue.use(DataTable);
 
 Vue.use(VueAxios, axios);
-
+Vue.use(VueToastr, {
+    /* OverWrite Plugin Options if you need */
+  });
 
 
 import App from './App.vue';
@@ -40,7 +46,6 @@ import App from './App.vue';
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('index-component', require('./components/IndexComponent.vue').default);
 
 
 
