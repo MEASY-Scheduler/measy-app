@@ -265,7 +265,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("div", { staticClass: "row mb-4" }, [
           _c("div", { staticClass: "col-12 col-lg-4 mb-3" }, [
-            _c("label", { attrs: { for: "" } }, [_vm._v("Meeting date range")]),
+            _c("label", { staticClass: "mt-1", attrs: { for: "" } }, [
+              _vm._v("Meeting date range"),
+            ]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-12 col-lg-4 mb-3" }, [
@@ -305,7 +307,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("div", { staticClass: "row mb-4" }, [
           _c("div", { staticClass: "col-12 col-lg-4 mb-3" }, [
-            _c("label", { attrs: { for: "" } }, [
+            _c("label", { staticClass: "mt-1", attrs: { for: "" } }, [
               _vm._v("Deadline For Response"),
             ]),
           ]),
@@ -352,7 +354,8 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-12 mb-4 mt-5 text-center" }, [
-          _vm._v("\n            Add Calender(s)\n            "),
+          _c("label", { attrs: { for: "" } }, [_vm._v("Add Calender(s)")]),
+          _vm._v(" "),
           _c("button", { staticClass: "btn btn-primary" }, [
             _vm._v("Connect to calender"),
           ]),

@@ -1,8 +1,7 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/js/resource/js/components/login.js": "/js/resource/js/components/login.js",
-    "/js/resource/js/components/register.js": "/js/resource/js/components/register.js",
-    "/js/resource/js/components/layouts/dashboard.js": "/js/resource/js/components/layouts/dashboard.js",
-    "/js/resource/js/components/dashboard.js": "/js/resource/js/components/dashboard.js",
-    "/css/app.css": "/css/app.css"
+    "/js/app.js": "/js/app.js?id=2931960539e7fd926b4a13cc9a410293",
+    "/js/resource/js/components/login.js": "/js/resource/js/components/login.js?id=d4fa1518e31606b568591862c469e703",
+    "/js/resource/js/components/register.js": "/js/resource/js/components/register.js?id=1ed32b2abe42293b8fbbc71425891ba2",
+    "/js/resource/js/components/dashboard.js": "/js/resource/js/components/dashboard.js?id=c032a5bb99aae2997bf5ecbb94ad7fcb",
+    "/css/app.css": "/css/app.css?id=fbd073edf6034df29b48e1cfcd57b7b6"
 }
