@@ -32,7 +32,11 @@ export default {
             
             let url = BASE_URL + '/api/auth/logout';
 
-            await axios.get(url).then(({data})=>{
+            await axios.get(url, {
+                headers: {
+                  Authorization: "Bearer " + localStorage.getItem("app_token") //the token is a variable which holds the token
+                }
+               }).then(({data})=>{
                 this.signOut()
                 this.$router.push({name:"login"})
             })

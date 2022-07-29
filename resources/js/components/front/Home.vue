@@ -54,14 +54,14 @@
                   </div>
 
                 </div>
-                <div id="group-meeting" class="tab-contents">
+                <!-- <div id="group-meeting" class="tab-contents">
                   <h2>Tab 2</h2>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius quos aliquam consequuntur, esse provident impedit minima porro! Laudantium laboriosam culpa quis fugiat ea, architecto velit ab, deserunt rem quibusdam voluptatum.</p>
                 </div>
                 <div id="enterprise-scheduling" class="tab-contents">
                   <h2>Tab 3</h2>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius quos aliquam consequuntur, esse provident impedit minima porro! Laudantium laboriosam culpa quis fugiat ea, architecto velit ab, deserunt rem quibusdam voluptatum.</p>
-                </div>
+                </div> -->
               </div>
           </div>
 

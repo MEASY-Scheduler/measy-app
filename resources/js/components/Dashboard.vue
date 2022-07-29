@@ -14,7 +14,7 @@
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody v-if="polls && polls.data.length > 0">
+                                <tbody v-if="polls">
                                     <tr v-for="(poll,index) in polls.data" :key="index">
                                         <td>{{ poll.title }}</td>
                                         <td>{{ poll.location }}</td>
@@ -22,7 +22,7 @@
                                         <td>{{ poll.meeting_end_range }}</td>
                                         <td>
                                             
-                                            <router-link class="btn btn-primary btn-sm" :to="{name:'poll.view', params: {id: poll.id}}">View</router-link>
+                                            <router-link class="btn btn-primary btn-sm" :to="{name:'poll.view', params: {poll_id: poll.id}}">View {{ poll.id }}</router-link>
                                             <button class="btn btn-info btn-sm" @click="editPoll(poll.id)">Edit</button>
                                             <button class="btn btn-danger btn-sm" @click="deletePoll(poll.id)">Delete</button>
                                         </td>
@@ -77,14 +77,21 @@ export default {
             
             let url = BASE_URL + '/api/poll/all';
 
-            await axios.get(url).then(({data})=>{
+            await axios.get(url, {headers: {
+                  Authorization: "Bearer " + localStorage.getItem("app_token") //the token is a variable which holds the token
+                }
+               }).then(({data})=>{
                 console.log(data);
             })
         },
 
         async fetch_polls(page=1){
                 let url = BASE_URL + '/api/poll/all?page=' + page;
-                await axios.get(url).then(({data})=>{
+                await axios.get(url, {
+                headers: {
+                  Authorization: "Bearer " + localStorage.getItem("app_token") //the token is a variable which holds the token
+                }
+               }).then(({data})=>{
                     this.polls = data
                 }).catch(({ response })=>{
                     console.error(response)

@@ -27,6 +27,10 @@
 
     <link href="http://fonts.cdnfonts.com/css/molle" rel="stylesheet">
 
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+
+
     <!-- ===============================================-->
     <!--    Stylesheets-->
     <!-- ===============================================-->

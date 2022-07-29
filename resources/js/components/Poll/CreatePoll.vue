@@ -43,7 +43,7 @@
     
                 <div class="col-12 mb-4 mt-5 text-center">
                     <button class="btn btn-primary" @click.prevent="goToStep(2)">Choose Meeting Time(s)</button>
-                    <button class="btn btn-primary" id="sendPollBtn" @click.prevent="createPoll">Send Poll</button>
+                    <!-- <button class="btn btn-primary" id="sendPollBtn" @click.prevent="createPoll">Send Poll</button> -->
                 </div>
     
             </div>
@@ -94,14 +94,17 @@
                 <div class="col-12 mb-4">
                     <label>Duration of Meeting</label>
                     <select v-model="poll_data.duration" class="form-control">
-                        <option>Select</option>
+                        <option value="30 Minutes">30 Minutes</option>
+                        <option value="45 Minutes">45 Minutes</option>
                     </select>
                 </div>
 
                 <div class="col-12 mb-4">
                     <label>Choose  number  of  entries: </label>
                     <select v-model="poll_data.no_of_entries" class="form-control">
-                        <option>Select</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
                     </select>
                 </div>
 
@@ -119,40 +122,22 @@
                     </div>
                 </div>
 
-                <div class="col-12 mb-5">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Video Conferencing
-                        </label>
-                    </div>                
-                </div>
-
                 <div class="col-12 mb-4 mt-5">
                     <label for="">Add Calender(s)</label>
                     <button class="btn btn-primary">Connect to calender</button>
                 </div>
 
+                <div class="col-12 mb-4 mt-5">
+                    <vue-cal :time-from="8 * 60" :time-to="19 * 60" :time-step="30" :disable-views="['years', 'year', 'month']" />
+                </div>
+
                 <div class="col-12 mb-4 mt-5 text-center">
                     <button class="btn btn-primary me-4" @click.prevent="goToStep(1)">Back</button>
-                    <button class="btn btn-primary" @click.prevent="goToStep(3)">Choose Poll Time(s)</button>
+                    <button class="btn btn-primary" id="sendPollBtn" @click.prevent="createPoll">Send Poll</button>
                 </div>
             </div>
         </div>
 
-
-        <div class="container py-5" v-if="currentStep == 3">
-            
-            <vue-cal :time-from="8 * 60" :time-to="19 * 60" :time-step="30" :disable-views="['years', 'year', 'month']" />
-
-
-            <div class="col-12 mb-4 mt-5 text-center">
-                
-                <button class="btn btn-primary me-4" @click.prevent="goToStep(2)">Back</button>
-                <button class="btn btn-primary" id="sendPollBtn" @click.prevent="createPoll">Send Poll</button>
-
-            </div>
-        </div>
 
 
 
@@ -219,7 +204,11 @@ export default {
 
             let url = BASE_URL + '/api/poll/create';
 
-            axios.post(url, this.poll_data).then(({data})=>{
+            axios.post(url, this.poll_data, {
+                headers: {
+                  Authorization: "Bearer " + localStorage.getItem("app_token") //the token is a variable which holds the token
+                }
+               }).then(({data})=>{
 
                 this.$router.push({ name: 'poll.view', params: {poll_id: data.data.id }});
                 // console.log(data.data.id);

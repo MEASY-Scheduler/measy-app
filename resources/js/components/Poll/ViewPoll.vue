@@ -36,7 +36,11 @@ export default {
             
             let url = BASE_URL + '/api/poll/' + this.param_poll_id;
 
-            axios.get(url).then(({data})=>{
+            axios.get(url, {
+                headers: {
+                  Authorization: "Bearer " + localStorage.getItem("app_token") //the token is a variable which holds the token
+                }
+               }).then(({data})=>{
                 this.poll_data = data.data;
 
                 console.log(this.poll_data);

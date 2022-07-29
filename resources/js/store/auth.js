@@ -25,9 +25,14 @@ export default {
     },
     actions:{
         login({commit}){
-            return axios.get('/api/user').then(({data})=>{
-                commit('SET_USER',data)
-                commit('SET_AUTHENTICATED',true)
+            
+            return axios.get('/api/user/me', {
+                headers: {
+                  Authorization: "Bearer " + localStorage.getItem("app_token") //the token is a variable which holds the token
+                }
+               }).then(({data})=>{
+                commit('SET_USER', data)
+                commit('SET_AUTHENTICATED', true)
                 router.push({name:'dashboard'})
             }).catch(({response:{data}})=>{
                 commit('SET_USER',{})
@@ -35,7 +40,8 @@ export default {
             })
         },
         logout({commit}){
-            localStorage.setItem("app_token", '')
+            localStorage.removeItem("app_token");
+
             commit('SET_USER',{})
             commit('SET_AUTHENTICATED',false)
         }

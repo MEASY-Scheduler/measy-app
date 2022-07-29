@@ -6,6 +6,7 @@ Vue.use(VueRouter)
 
 /* Guest Component */
 const Home = () => import('../components/front/Home.vue');
+const EmailVerification = () => import('../components/front/EmailVerification.vue');
 const Login = () => import('../components/Login.vue' /* webpackChunkName: "resource/js/components/login" */)
 const Register = () => import('../components/Register.vue' /* webpackChunkName: "resource/js/components/register" */)
 /* Guest Component */
@@ -33,6 +34,15 @@ const Routes = [
         meta:{
             middleware:"guest",
             title:`Home`
+        }
+    },
+    {
+        name:"email-verification",
+        path:"/email-verification",
+        component:EmailVerification,
+        meta:{
+            middleware:"guest",
+            title:`Email Verification`
         }
     },
     {
