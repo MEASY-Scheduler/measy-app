@@ -1,6 +1,6 @@
 <template>
-    
-    <!-- <div class="container h-100">
+
+  <!-- <div class="container h-100">
         <div class="row h-100 align-items-center">
             <div class="col-12 col-md-6 offset-md-3">
                 <div class="card shadow sm">
@@ -39,72 +39,72 @@
         </div>
     </div> -->
 
-    <section class="">
-        <div class="container text-center">
+  <section class="">
+    <div class="container text-center">
 
-          <div class="row p-5 ">
-            <div class="col-md-12 col-lg-8 offset-lg-2">
+      <div class="row p-5 ">
+        <div class="col-md-12 col-lg-8 offset-lg-2">
 
-              <h2 class="text-primary mb-5">Sign Up</h2>
+          <h2 class="text-primary mb-5">Sign Up</h2>
 
-                  <div class="row border rounded border-primary p-5">
+          <div class="row border rounded border-primary p-5">
 
-                    <div class="text-danger" id="submission-errors"></div>
+            <div class="text-danger" id="submission-errors"></div>
 
-                    <div class="col-12 col-lg-6  mb-4">
-                      <input class="form-control" placeholder="First Name" id="first_name" />
-                    </div>
-                    <div class="col-12 col-lg-6  mb-4">
-                      <input class="form-control" placeholder="Last Name" id="last_name" />
-                    </div>
-                    <div class="col-12 col-lg-6  mb-4">
-                      <input class="form-control" placeholder="Email Address" id="email" />
-                    </div>
-                    <div class="col-12 col-lg-6  mb-4">
-                      <input class="form-control" placeholder="Occupation" id="occupation" />
-                    </div>
-                    <div class="col-12 col-lg-6  mb-4">
-                      <input class="form-control" placeholder="Job Title" id="job_title" />
-                    </div>
-                    <div class="col-12 col-lg-6  mb-4">
-                      <input class="form-control" placeholder="Organization" id="organization" />
-                    </div>
-                    <div class="col-12 col-lg-6  mb-4">
-                      <input class="form-control" placeholder="Phone Number" id="phone_number" />
-                    </div>
-                    <div class="col-12 col-lg-6  mb-4">
-                      <input class="form-control" placeholder="Cell Number"  id="cell_number" />
-                    </div>
-                    <div class="col-12 col-lg-6  mb-4">
-                      <input class="form-control" type="password" placeholder="Password" id="password" />
-                    </div>
-                    <div class="col-12 col-lg-6  mb-5">
-                      <input class="form-control" type="password" placeholder="Confirm Password" id="confirm_password" />
-                    </div>
+            <div class="col-12 col-lg-6  mb-4">
+              <input class="form-control" placeholder="First Name" id="first_name" />
+            </div>
+            <div class="col-12 col-lg-6  mb-4">
+              <input class="form-control" placeholder="Last Name" id="last_name" />
+            </div>
+            <div class="col-12 col-lg-6  mb-4">
+              <input class="form-control" placeholder="Email Address" id="email" />
+            </div>
+            <div class="col-12 col-lg-6  mb-4">
+              <input class="form-control" placeholder="Occupation" id="occupation" />
+            </div>
+            <div class="col-12 col-lg-6  mb-4">
+              <input class="form-control" placeholder="Job Title" id="job_title" />
+            </div>
+            <div class="col-12 col-lg-6  mb-4">
+              <input class="form-control" placeholder="Organization" id="organization" />
+            </div>
+            <div class="col-12 col-lg-6  mb-4">
+              <input class="form-control" placeholder="Phone Number" id="phone_number" />
+            </div>
+            <div class="col-12 col-lg-6  mb-4">
+              <input class="form-control" placeholder="Cell Number" id="cell_number" />
+            </div>
+            <div class="col-12 col-lg-6  mb-4">
+              <input class="form-control" type="password" placeholder="Password" id="password" />
+            </div>
+            <div class="col-12 col-lg-6  mb-5">
+              <input class="form-control" type="password" placeholder="Confirm Password" id="confirm_password" />
+            </div>
 
-                    <div class="col-12 mb-3">
-                      <p>By signing up, you agree to the <a href="#">terms and conditions</a> </p>
-                    </div>
+            <div class="col-12 mb-3">
+              <p>By signing up, you agree to the <a href="#">terms and conditions</a> </p>
+            </div>
 
-                    <div class="col-12 mb-3">
-                      <button class="btn btn-primary w-100" @click="signup" id="signup_button"> Sign Up </button>
-                    </div>
-                    
-                    <div class="col-12 mt-2">
-                      <p class="text-center">Or</p>
-                    </div>
+            <div class="col-12 mb-3">
+              <button class="btn btn-primary w-100" @click="signup" id="signup_button"> Sign Up </button>
+            </div>
 
-                    <div class="col-12 mb-4">
-                        <label>Already have an account? <router-link :to="{name:'login'}">Login Now!</router-link></label>
-                        <a href="#" class="social-button" id="google-connect"> <span>Signup with Google</span></a>
-                        <a href="#" class="social-button" id="microsoft-connect"> <span>Signup with Microsoft</span></a>
-                    </div>
-                  </div>
+            <div class="col-12 mt-2">
+              <p class="text-center">Or</p>
+            </div>
 
+            <div class="col-12 mb-4">
+              <label>Already have an account? <router-link :to="{name:'login'}">Login Now!</router-link></label>
+              <a href="/api/auth/google" class="social-button" id="google-connect"> <span>Signup with Google</span></a>
+              <a href="#" class="social-button" id="microsoft-connect"> <span>Signup with Microsoft</span></a>
             </div>
           </div>
+
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
 </template>
 

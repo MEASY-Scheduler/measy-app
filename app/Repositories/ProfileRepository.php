@@ -2,9 +2,10 @@
 
 namespace App\Repositories;
 
-use App\Interfaces\ProfileRepositoryInterface;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
+use App\Interfaces\ProfileRepositoryInterface;
 use phpDocumentor\Reflection\PseudoTypes\PositiveInteger;
 
 class ProfileRepository implements ProfileRepositoryInterface
@@ -64,4 +65,27 @@ class ProfileRepository implements ProfileRepositoryInterface
         event(new Registered($user));
         // return $user;
     }
+
+    public function changePassword(object $oldPassword, object $newPassword, $id)
+    {
+
+        $old_password = auth()->user()->password;
+
+        if(Hash::check($oldPassword, $old_password) && count($newPassword) > 8)
+        {
+            User::where('id', $id)
+                ->first()
+                ->update(['password', Hash::make($newPassword)]);
+            
+            auth()->user()->tokens()->delete();
+
+            return true;
+        }else{
+            return false;
+            // return "Whooops! something went wrong, Kindly ensure your old password is correct and your new password is 8characters long.";
+        }
+
+        // return $old_password;
+    }
+
 }

@@ -350,7 +350,7 @@ var staticRenderFns = [
         "a",
         {
           staticClass: "social-button",
-          attrs: { href: "#", id: "google-connect" },
+          attrs: { href: "/api/auth/google", id: "google-connect" },
         },
         [_c("span", [_vm._v("Signin with Google")])]
       ),

@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="col-12 mb-4">
-                        <a href="#" class="social-button" id="google-connect"> <span>Signin with Google</span></a>
+                        <a href="/api/auth/google" class="social-button" id="google-connect"> <span>Signin with Google</span></a>
                         <a href="#" class="social-button" id="microsoft-connect"> <span>Signin with Microsoft</span></a>
                     </div>
 

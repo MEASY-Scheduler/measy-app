@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\UserController\PollController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\UserController\ProfileController;
+use App\Http\Controllers\Calendars\GoogleCalendarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +70,21 @@ Route::prefix('user')->middleware(['auth:sanctum', 'auth.session', 'verified'])-
 
     Route::put('/change_email', [ProfileController::class, 'change_email'])
         ->name('change_email');
+
+    Route::get('/connect_google_calendar', [GoogleCalendarController::class, 'connect'])
+        ->name('connect_google_calendar');
+
+    Route::get('/get_user_event', [GoogleCalendarController::class, 'event'])
+        ->name('user_event');
+
+    Route::get('/account_settings', [ProfileController::class, 'account_settings'])
+        ->name('/account_settings');
+
+    Route::post('/update_settings', [ProfileController::class, 'update_settings'])
+        ->name('update_settings');
+
+    Route::post('/change_password', [ProfileController::class, 'change_password'])
+        ->name('/change_password');
 });
 
 Route::get('/reset-password/{token}', function ($token) {

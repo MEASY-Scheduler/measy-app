@@ -10,4 +10,6 @@ interface ProfileRepositoryInterface
     public function editUserProfile(object $userdetails, $id);
 
     public function changeEmail(object $useremail, $id);
+
+    public function changePassword(object $oldPassword, object $newPassword, $id);
 }
