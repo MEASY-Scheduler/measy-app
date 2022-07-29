@@ -43,7 +43,7 @@ Route::prefix('auth')->group(function() {
 
 });
 
-Route::prefix('poll')->middleware(['auth:sanctum', 'auth.session', 'verified'])->group(function() {
+Route::prefix('poll')->middleware(['auth:sanctum', 'auth.session'])->group(function() {
     Route::get('/all', [PollController::class, 'index'])
         ->name('mypoll');
 
@@ -60,7 +60,7 @@ Route::prefix('poll')->middleware(['auth:sanctum', 'auth.session', 'verified'])-
         ->name('delete');
 });
 
-Route::prefix('user')->middleware(['auth:sanctum', 'auth.session', 'verified'])->group(function() {
+Route::prefix('user')->middleware(['auth:sanctum', 'auth.session'])->group(function() {
     Route::get('/me', [ProfileController::class, 'my_profile'])
         ->name('me');
 

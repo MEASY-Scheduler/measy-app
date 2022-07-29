@@ -75,9 +75,11 @@ export default {
             await axios.post(url, this.auth).then(({data})=>{
 
                 localStorage.setItem("app_token", data.data.token)
-
+                
+console.log(data);
                 this.signIn()
             }).catch(({response:{data}})=>{
+                console.log(data);
                 document.querySelector('#submission-errors').innerHTML = data.message;
             }).finally(()=>{
                 this.processing = false
