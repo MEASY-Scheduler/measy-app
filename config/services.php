@@ -37,4 +37,11 @@ return [
         'redirect' => 'http://localhost:8000/api/auth/google/callback'
     ],
 
+    'graph' => [
+        'client_id' => env('CLIENT_ID'),
+        'client_secret' => env('CLIENT_SECRET'),
+        'redirect' => env('GRAPH_REDIRECT_URI'),
+        // 'scope' =>
+    ],
+
 ];
