@@ -4,6 +4,7 @@ use App\Models\User;
 use Microsoft\Graph\Graph;
 use Microsoft\Graph\Model;
 use Illuminate\Http\Request;
+use Spatie\GoogleCalendar\Event;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\Auth\AuthController;
@@ -23,6 +24,11 @@ use App\Http\Controllers\Calendars\GoogleCalendarController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('/myevents', function(){
+    $events = Event::get();
+
+    dd($events);
+});
 Route::prefix('auth')->group(function() {
 
     Route::post('/register', [AuthController::class, 'register'])

@@ -23,12 +23,12 @@ return [
             /*
              * Path to the json file containing the oauth2 credentials.
              */
-            'credentials_json' => storage_path('app/google-calendar/oauth-credentials.json'),
+            // 'credentials_json' => storage_path('app/google-calendar/oauth-credentials.json'),
 
             /*
              * Path to the json file containing the oauth2 token.
              */
-            'token_json' => storage_path('app/google-calendar/oauth-token.json'),
+            // 'token_json' => storage_path('app/google-calendar/oauth-token.json'),
         ],
     ],
 
@@ -40,5 +40,5 @@ return [
      /*
      *  The email address of the user account to impersonate.
      */
-    'user_to_impersonate' => env('GOOGLE_CALENDAR_IMPERSONATE'),
+    // 'user_to_impersonate' => env('GOOGLE_CALENDAR_IMPERSONATE'),
 ];
